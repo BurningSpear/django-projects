@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %} To Do List App{% endblock title %}
+
+{% block content %}
+
+{% if all_items %}
+<table class="table table-bordered" align="left">
+    {% for created_data in all_items %}
+    {% if created_data.completed %}
+    <tr class="table-secondary">
+        <td>
+           {{ created_data.item }}
+        </td>
+        <td>
+            {{ created_data.completed }}
+        </td>
+        <td>
+            {{ delete }}
+        </td>
+    </tr>
+    {% else %}
+    <tr>
+        <td>
+            {{ created_data.item }}
+        </td>
+        <td>
+            {{ created_data.completed }}
+        </td>
+        <td>
+            {{ delete }}
+        </td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+</table>
+{% endif %}
+{% endblock content %}
